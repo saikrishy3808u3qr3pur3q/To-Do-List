@@ -9,11 +9,23 @@ class Cards extends StatefulWidget {
 
 class _CardsState extends State<Cards> {
   @override
+
   final _text=TextEditingController();
   String? passed;
   List<String?> passesList=[''];
   List<bool?> value_=[false];
   Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.blue;
+      }
+      return Colors.red;
+    }
     print(passed);
     print(passesList);
     return Scaffold(
@@ -59,9 +71,11 @@ class _CardsState extends State<Cards> {
            children: [
              Expanded(child:Checkbox(
 value: value_[index+1],
+               fillColor: MaterialStateProperty.resolveWith(getColor),
                onChanged: (bool? value){
   print(value_);
   setState(() {
+
     value_[index+1]=value;
   });
 
