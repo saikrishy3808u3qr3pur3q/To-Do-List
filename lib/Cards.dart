@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'CheckboxExample.dart';
 class Cards extends StatefulWidget {
-  const Cards({super.key});
+  String priority;
+  Cards(this.priority);
 
   @override
   State<Cards> createState() => _CardsState();
@@ -12,6 +13,7 @@ class _CardsState extends State<Cards> {
 
   final _text=TextEditingController();
   String? passed;
+
   List<String?> passesList=[''];
   List<bool?> value_=[false];
   Widget build(BuildContext context) {
@@ -24,11 +26,12 @@ class _CardsState extends State<Cards> {
       if (states.any(interactiveStates.contains)) {
         return Colors.blue;
       }
-      return Colors.red;
+      return Colors.blue  ;
     }
     print(passed);
     print(passesList);
     return Scaffold(
+      backgroundColor: Colors.green[200],
       body:SingleChildScrollView(
         child: Column(
           children: [ListView(
@@ -36,11 +39,11 @@ class _CardsState extends State<Cards> {
               shrinkWrap: true,
             children:[SizedBox(height: 2),ListTile(
             shape: RoundedRectangleBorder(
-                       side:BorderSide(width: 3 ,),
-                       borderRadius:BorderRadius.circular(40)
+                       side:BorderSide(width: 3 ,color:Colors.white),
+                       borderRadius:BorderRadius.circular(10)
             ),
 
-            tileColor: Colors.blue[400],
+            tileColor: Colors.green[200],
 
                     onTap: (){
               setState(() {
@@ -53,6 +56,7 @@ class _CardsState extends State<Cards> {
               },
               title: Text("Add a Task")),
             Container(
+              padding: EdgeInsets.fromLTRB(5,0,5,0),
               child: TextField(
                 controller: _text,
               ),
@@ -70,6 +74,7 @@ class _CardsState extends State<Cards> {
          return Row(
            children: [
              Expanded(child:Checkbox(
+
 value: value_[index+1],
                fillColor: MaterialStateProperty.resolveWith(getColor),
                onChanged: (bool? value){
@@ -77,10 +82,10 @@ value: value_[index+1],
   setState(() {
 
     value_[index+1]=value;
-  });
-
-
-
+    Finshed(passesList[index+1]);
+    passesList.remove(index+1);
+  }
+  );
                },
              )),Expanded(
                flex:1,
@@ -93,7 +98,7 @@ value: value_[index+1],
                ),
                onPressed: (){
                  setState(() {
-                   value_.removeAt(index);
+                   value_.removeAt(index+1);
                    passesList.remove(passesList[index+1]);
                  });
                      },

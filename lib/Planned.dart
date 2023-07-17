@@ -11,11 +11,12 @@ class Planned extends StatefulWidget {
 class _PlannedState extends State<Planned> {
   @override
   Widget build(BuildContext context) {
+    String priority='Planned';
     return Scaffold(
       appBar: AppBar(
         title: Text('Planned'),
       ),
-      body:Cards() ,
+      body:Cards(priority) ,
 
     );;
   }

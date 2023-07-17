@@ -12,12 +12,15 @@ class MyDay extends StatefulWidget {
 class _MyDayState extends State<MyDay> {
   @override
   List<String>? add_task ;
+  String priority='MyDay';
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green[200],
       appBar: AppBar(
+        backgroundColor: Colors.green[700],
       title: Text('My Day'),
       ),
-      body:Cards() ,
+      body:Cards(priority) ,
 
     );
   }

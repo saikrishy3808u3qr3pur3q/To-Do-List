@@ -10,12 +10,13 @@ class Flagged extends StatefulWidget {
 
 class _FlaggedState extends State<Flagged> {
   @override
+  String priority='Flagged';
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Flagged'),
       ),
-      body:Cards() ,
+      body:Cards(priority) ,
 
     );;
   }

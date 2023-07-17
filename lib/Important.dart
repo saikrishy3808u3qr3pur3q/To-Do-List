@@ -10,12 +10,13 @@ class Important extends StatefulWidget {
 
 class _ImportantState extends State<Important> {
   @override
+  String priority='Important';
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Important'),
       ),
-      body:Cards() ,
+      body:Cards(priority) ,
 
     );;
   }
