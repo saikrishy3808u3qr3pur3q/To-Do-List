@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/Finshed.dart';
+
 import 'CheckboxExample.dart';
 class Cards extends StatefulWidget {
   String priority;
@@ -13,8 +15,10 @@ class _CardsState extends State<Cards> {
 
   final _text=TextEditingController();
   String? passed;
+  List<String?>Finished=[''];
 
   List<String?> passesList=[''];
+  String? Temp='';
   List<bool?> value_=[false];
   Widget build(BuildContext context) {
     Color getColor(Set<MaterialState> states) {
@@ -82,7 +86,8 @@ value: value_[index+1],
   setState(() {
 
     value_[index+1]=value;
-    Finshed(passesList[index+1]);
+    Temp=passesList[index+1];
+    Finished.add(Temp);
     passesList.remove(index+1);
   }
   );
@@ -107,6 +112,12 @@ value: value_[index+1],
          );
         }
   ),
+            // ListView(
+            //   shrinkWrap: true,
+            //   physics: NeverScrollableScrollPhysics(),
+            //   children: [Finshed(Finished)],
+            // ),
+
 
           ],
             ),
