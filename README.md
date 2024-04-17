@@ -21,3 +21,7 @@ Clone this repository.
 - Mark as Complete: Tap on the checkbox to mark a task as complete.
 - Delete Task: Swipe left on a task to delete it.
 - Logout: Tap on the logout button to sign out of the app.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
